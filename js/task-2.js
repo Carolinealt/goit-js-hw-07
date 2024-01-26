@@ -30,11 +30,12 @@ const items = images.map(({ url, alt }) => {
   const itemListRef = document.createElement("li");
   const galleryImageRef = document.createElement("img");
 
-  galleryImageRef.url = url;
+  galleryImageRef.src = url;
   galleryImageRef.alt = alt;
+  galleryImageRef.classList.add('gallery-img');
   
-  console.log(galleryImageRef);
-
-  return itemListRef.append(galleryImageRef);
+  itemListRef.append(galleryImageRef);
+  return itemListRef;
 });
-list.append(items);
+
+list.append(...items);
