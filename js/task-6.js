@@ -10,7 +10,7 @@ const refs = {
   btnDestroy: document.querySelector("[data-destroy]"),
   container: document.querySelector("#boxes"),
 };
-const arrayOfDiv = [];
+let arrayOfDiv = [];
 
 
 function createBoxes(event) {
@@ -28,8 +28,13 @@ function createBoxes(event) {
 }
 
 function deleteBoxes(event) {
-  
-  refs.container.innerHTML = '';
+  const boxes = document.querySelectorAll('.boxe');
+  boxes.forEach(box => {
+    box.remove();
+  })
+  arrayOfDiv = [];
+  console.log(boxes)
+
 }
 
 refs.btnCreate.addEventListener('click', createBoxes)
