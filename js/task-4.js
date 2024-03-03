@@ -10,14 +10,15 @@ function submitForm(event) {
 
   if (emailValue === "" || passwordValue === "") {
     window.alert("All form fields must be filled in");
+    return;
   }
-  console.log(event.currentTarget);
+
   const formData = new FormData(event.currentTarget);
-
-  formData.forEach((value, name) => {
-    console.log({name, value});
+  console.log(formData.)
 
 
-  });
+  // formData.forEach((value, name) => {
+  //   console.log({ name, value });
+  // });
   form.reset();
 }

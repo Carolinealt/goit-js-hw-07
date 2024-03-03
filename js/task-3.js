@@ -1,15 +1,15 @@
 const refs = {
-    input: document.querySelector('#name-input'),
-    output: document.querySelector('#name-output')
-}
+  input: document.querySelector("#name-input"),
+  output: document.querySelector("#name-output"),
+};
 
-refs.input.addEventListener('input', onKeyPress);
+refs.input.addEventListener("input", onKeyPress);
 
-function onKeyPress(event){
-    if (event.currentTarget.value === ' ') {
-        event.currentTarget.value === ''
-    }
-    refs.output.textContent = event.currentTarget.value;
+function onKeyPress(event) {
+  refs.output.textContent =
+    event.currentTarget.value.trim() === ""
+      ? "Anonymous"
+      : event.currentTarget.value.trim();
 
-
+  return refs.output.textContent;
 }
