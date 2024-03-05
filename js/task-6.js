@@ -12,21 +12,36 @@ const refs = {
 
 const { btnCreate, btnDestroy, input, boxes } = refs;
 
-input.addEventListener("input", (e) => {
-  let val = e.target;
-  console.log(typeof val);
-  if (val.value < 1 || val.value > 100) {
-    val.value = "";
+btnCreate.addEventListener("click", addBoxes);
+btnDestroy.addEventListener("click", destroyBoxes);
+
+function addBoxes(e) {
+  boxes.innerHTML = "";
+  if (input.value < 1 || input.value > 100) {
+    input.value = "";
   }
 
-  btnCreate.addEventListener("click", changeColor);
- 22
-});
+  boxes.append(...createBoxes(input.value));
+}
 
-function createBoxes(amount) {}
+function destroyBoxes(e) {
+  const arrOfBox = document.querySelectorAll(".boxe");
+  for (const i of arrOfBox) {
+    i.remove();
+  }
+}
 
-function changeColor(e) {
-  console.log("1223");
+function createBoxes(amount) {
+  const array = [];
+  for (let i = 0; i < amount; i++) {
+    const box = document.createElement("div");
+    box.classList.add("boxe");
+    box.style.backgroundColor = getRandomHexColor();
+    box.style.height = `${30 + i * 10}px`;
+    box.style.width = `${30 + i * 10}px`;
+    array.push(box);
+  }
+  return array;
 }
 
 // function getRandomHexColor() {
