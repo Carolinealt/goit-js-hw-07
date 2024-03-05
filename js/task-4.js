@@ -17,6 +17,8 @@ function sendForm(e) {
   
   dataForm.email = e.target.elements.email.value;
   dataForm.password = e.target.elements.password.value;
+  e.target.reset();
+  console.log(dataForm);
 }
 
 // const form = document.querySelector(".login-form");
