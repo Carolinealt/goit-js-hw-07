@@ -3,13 +3,12 @@ const refs = {
   output: document.querySelector("#name-output"),
 };
 
-refs.input.addEventListener("input", onKeyPress);
+refs.input.addEventListener("input", changeName);
 
-function onKeyPress(event) {
+function changeName(event) {
   refs.output.textContent =
     event.currentTarget.value.trim() === ""
       ? "Anonymous"
       : event.currentTarget.value.trim();
-
   return refs.output.textContent;
 }
